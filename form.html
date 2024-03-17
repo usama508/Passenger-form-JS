@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="form.css" />
+    <title>Passengers Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="mains">
+            <div class="title">
+              <h1>Passengers</h1>
+
+              <p>Enter the first name and last name as they appear on the passport or identification document of each passenger, and add the LifeMiles frequent flyer number or of an allied airline for more benefits.</p>
+            </div>
+
+            
+
+            <div class="form-main">
+              <div class="form-head d-flex">
+                <h1>Adult 1:</h1><p id="name" class="pt-3 display-input"></p><p id="last_name" class="pt-3  display-input"></p>
+              </div>
+
+              <form>
+               
+
+
+                <div class="row g-4">
+                  <div class="col-lg-2 col-5 " style="padding-right: 0px;">
+                    
+                    <div class="form-floating">
+                      <input
+                      type="select"
+                      class="form-control selects-label"
+                      onchange="validateSelect(this, 'errorMessage1', 'name_color');"
+                      onblur="clearSelectError(this, 'errorMessage1', 'name_color');"
+                      id="select1"
+                      placeholder="name"
+                      readonly
+                              />
+
+                     
+
+
+                      <span id="dropdownToggle" class="dropdown-icon" ><i class='fa-solid fa-angle-down' style=" color: rgb(133, 133, 133);"></i></span>
+
+                      <label for="floatingInput" class="select-label"
+                        >Gender*</label
+                      >
+                      <ul class="dropdown-menu">
+                      
+
+                       <li data-value="1">Male</li>
+                       <li data-value="2">Female</li>
+                       <li data-value="3">Other</li>
+                        
+                       
+                        
+                        
+                        
+                        
+                      </ul>
+                      
+                    </div>
+                  
+                  
+                  
+                  </div>
+                  <div class="col-lg-4 col-7 " style="padding-left: 5px;">
+                    <div class="form-floating">
+                      <input
+                          type="text"
+                          class="form-control input-text"
+                          autocomplete="off"
+                          onblur="validateInput(this, 'errorMessage1', 'name_color'); clearError(this, 'errorMessage1', 'name_color')"
+                          onkeyup="validateInput(this, 'errorMessage1')"
+                          onclick="clearError(this, 'errorMessage1')"
+                          id="f_name"
+                          oninput="updatePTag()"
+                          placeholder="first-name"
+                      />
+                      <label for="floatingInput" onblur="Col1()" class="input-label"> Name(s)* </label>
+                      <p class="error-message text-center error-p" id="errorMessage1"></p>
+                      <i class="fa-solid fa-circle-exclamation error-icon" style="display: none;"></i>
+                  </div>
+                  
+                  </div>
+
+                  <div class="col-lg-6 col-12">
+                    <div class="form-floating">
+                      <input
+                          type="text"
+                          class="form-control input-text"
+                          autocomplete="off"
+                          onblur="validateInput(this, 'errorMessage2', 'name_color'); clearError(this, 'errorMessage2', 'name_color')"
+                          onkeyup="validateInput(this, 'errorMessage2')"
+                          onclick="clearError(this, 'errorMessage2')"
+                          id="l_name"
+                          oninput="updatePTag()"
+                          placeholder="last-name"
+                      />
+                      <label for="floatingInput" onblur="Col2()" class="input-label"> Last name* </label>
+                      <p class="error-message text-center error-p" id="errorMessage2"></p>
+                      <i class="fa-solid fa-circle-exclamation error-icon2" style="display: none;"></i>
+                  </div>
+                  </div>
+
+                  <div class="col-lg-6 col-12">
+                  
+
+                      <div class="form-floating"  onclick="updatePTag1(event)">
+                        <input
+                          type="select"
+                          class="form-control  "
+                          id="floatingInput1"
+                          placeholder="name"
+                          readonly
+                        />
+                        <span id="dropdownToggle1" class="dropdown-icon" ><i class='fa-solid fa-angle-down' style=" color: rgb(133, 133, 133);"></i></span>
+                        <label for="floatingInput" class="select-label1"
+                          > Frequent flyer program (optional) </label
+                        >
+                        
+                        <ul class="dropdown-menu1 " onclick="toggleInput()" style="margin-top:5px;">
+                         
+                  <li data-value="2" >LifeMiles </li>
+                          <li data-value="3">Aeroplan </li>
+                          <li data-value="4">AirPoints </li>
+                          <li data-value="5">ANA Mileage Club</li>
+                          <li data-value="6">Asiana Club </li>
+                          <li data-value="7">Connect Miles </li>
+                          <li data-value="8">Egyptair Plus</li>
+                          <li>  Euro Bonus</li>
+                          <li data-value="9">Flying Returns Program</li>
+                          <li data-value="10">Iberia Plus </li>
+                          <li data-value="11">Infinity MileageLands </li>
+                          <li data-value="12">KrisFlyer  </li>
+                          <li data-value="13">Mileage Plus </li>
+                          <li data-value="14">Miles&Bonus </li>
+                          <li data-value="15">Miles&Go</li>
+                          <li data-value="16">Miles&More  </li>
+                          <li data-value="16">Miles&Smiles </li>
+                          <li data-value="17">Phoenix Miles  </li>
+                          <li data-value="18">Royal Orchid Plus</li>
+                          <li data-value="19">ShebaMiles </li>
+                          <li data-value="20">Smiles</li>
+                          <li data-value="21">Voyager  </li>
+                        </ul>
+                    </div>
+
+
+
+
+
+                    
+                  </div>
+<div class="col-lg-6 ">
+                 
+                   
+                    <div class="form-floating input-field" id="inputField">
+                      <input
+                          type="text"
+                          class="form-control input-text"
+                          autocomplete="off"
+                          onblur="validateInput(this, 'errorMessage5', 'name_color'); clearError(this, 'errorMessage5', 'name_color')"
+                          onkeyup="validateInput(this, 'errorMessage5')"
+                          onclick="clearError(this, 'errorMessage5')"
+                          id="new_input"
+                          
+                          placeholder="name"
+                      />
+                      <label for="floatingInput" class="input-label" onblur="Col5()"
+                      >Frequent flyer Number <span id="abc" ></span>*</label
+                    >
+                      <p class="error-message  error-p error-m" id="errorMessage5">Complete this field to continue</p>
+                      <i class="fa-solid fa-circle-exclamation error-icon1" style="display: none;"></i>
+                  </div>
+                    
+                    
+               
+                  </div>
+                   
+                </div>
+                </div>
+                
+               
+
+              </form>
+            
+
+            <div class="title pt-5">
+              <h1>Booking holder</h1>
+            </div>
+
+            <div class="form-main">
+              <form>
+                <div class="row g-4">
+                  <div class="col-lg-2  col-5" style="padding-right: 0px;">
+                   
+
+                    <div class="form-floating">
+                      <input
+                        type="select"
+                        class="form-control selects-label2"
+                        id="floatingInput2"
+                        placeholder="name"
+                        readonly
+                      />
+                      <span id="dropdownToggle2" class="dropdown-icon" ><i class='fa-solid fa-angle-down' style=" color: rgb(133, 133, 133);"></i></span>
+
+                      <label for="floatingInput" class="select-label2"
+                        > Prefix* </label
+                      >
+                      <ul class="dropdown-menu2">
+                        <div class=" d-flex flex-row prefix-div  " >
+                          <li class="prefix-span pt-2">Argentina gggffdd<span data-value="1" > (54)</span></li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <li class="prefix-span pt-2">Aruba <span data-value="2">(297)</span></li>
+                        </div>
+                     
+                        <!-- <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Afghanistan</span><li data-value="3"> (93)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Aland Islands</span><li data-value="4" > (+358-8) </li>
+                        </div>
+
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Albania</span><li data-value="5"> (355)</li>
+                        </div>
+                        
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Algeria</span><li data-value="6"> (213) </li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">American Samoa <li data-value="7" style="margin-top:-13px;" > (+1-684)</li></span>
+                          
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Andorra</span><li data-value="8"> (376)</li>
+                        </div>
+
+                    <div class="">
+
+                    </div>
+                        <div class=" d-flex flex-row prefix-div " >
+                          <span class="prefix-span pt-2">Angola</span> <li>  (244)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div  ">
+                          <span class="prefix-span pt-2">Anguilla </span><br>
+                          <li data-value="9">(+1-264)</li>
+                        </div>
+                       
+                        <div class=" d-flex prefix-div ">
+                          <span class="prefix-span pt-2">Antigua and Barbuda<li data-value="10" style="margin-top:-13px;"> (+1-268) </li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Argentina </span><li data-value="11">(54)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Armenia</span><li data-value="12"> (374)  </li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Aruba</span><li data-value="13"> (297) </li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Australia</span><li data-value="14"> (61) </li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Austria</span><li data-value="15"> (43)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Azerbaijan </span><li data-value="16">(994)  </li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Bahamas </span><li data-value="16">(+1-242) </li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Bahrain</span><li data-value="17"> (973) </li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Bangladesh</span><li> (880)</li>
+                        </div>
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Barbados</span><li> (+1-246)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Belarus</span> <li data-value="18"> (375)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Belgium</span><li data-value="19"> (32) </li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Belize</span><li data-value="20"> (501)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Benin</span> <li data-value="21"> (229)  </li>
+                        </div>
+                       
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Bermuda</span><li> (+1-441)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Bhutan</span><li> (975)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Bolivia</span><li> (591)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Bonaire</span><li> (599)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Bosnia and Herzegovina<li style="margin-top:-13px;"> (387)</li></span>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Botswana</span> <li> (267)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Brazil</span><li> (55)</li>
+                        </div>
+                       
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">British Virgin Islands<li style="margin-top:-13px;"> (+1-284)</li></span>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Brunei</span><li> (673)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Bulgaria</span><li> (359)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Burkina Faso</span><li> (226)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Burundi</span><li> (257)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Cambodia</span><li> (855)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Cameroon</span><li> (237)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Canada</span><li> (1)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Cape Verde</span><li> (238)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Cayman Islands <li style="margin-top:-13px;">(+1-345)</li></span> 
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Central African Republic<li style="margin-top:-13px;"> (236)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Chad </span><li>(235)</li>
+                        </div>
+                       
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Chile</span><li> (56)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">China</span><li> (86)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Christmas Island</span><li> (61)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Cocos (Keeling) Islands<li style="margin-top:-13px;"> (61)</li></span>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Colombia</span><li> (57)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Comoros</span><li> (269)</li>
+                        </div>
+                        
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Congo - Brazzaville<li> (242)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Congo - Kinshasa</span><li> (243)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Cook Islands</span><li> (682)</li>
+                        </div>
+                        
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Costa Rica</span><li> (506)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Cote D'Ivoire</span><li> (225)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Cuba</span><li> (53)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Curaçao</span><li> (599)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Cyprus</span><li> (357)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Czech Republic</span><li> (420)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Denmark</span><li> (45)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Djibouti</span><li> (253)</li>
+                        </div>
+                        
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominica</span><li> (+1-767)</li>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Ecuador<li style="margin-top:-13px;"> (593)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">El Salvador<li style="margin-top:-13px;"> (503)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div>
+
+                        <div class=" d-flex flex-row prefix-div ">
+                          <span class="prefix-span pt-2">Dominican Republic<li style="margin-top:-13px;"> (+1-809)</li></span>
+                        </div> -->
+                        
+                        
+                        
+                        
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-7" style="padding-left: 5px;">
+                    <div class="form-floating">
+                      <input
+                          type="number"
+                          class="form-control input-text"
+                          autocomplete="off"
+                          onblur="validateInput(this, 'errorMessage3', 'name_color'); clearError(this, 'errorMessage3', 'name_color')"
+                          onkeyup="validateInput(this, 'errorMessage3')"
+                          onclick="clearError(this, 'errorMessage3')"
+                          id="phone"
+                          
+                          placeholder="last-name"
+                      />
+                      <label for="floatingInput" onblur="Col2()" class="input-label"> Phone number* </label>
+                      <p class="error-message text-center error-p" id="errorMessage3"></p>
+                      <i class="fa-solid fa-circle-exclamation error-icon" style="display: none;"></i>
+                  </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-floating">
+                      <input
+                          type="text"
+                          class="form-control input-text"
+                          autocomplete="off"
+                          onblur="validateInput(this, 'errorMessage4', 'name_color'); clearError(this, 'errorMessage4', 'name_color')"
+                          onkeyup="validateInput(this, 'errorMessage4')"
+                          onclick="clearError(this, 'errorMessage4')"
+                          id="email"
+                          
+                          placeholder=""
+                      />
+                      <label for="floatingInput" onblur="Col2()" class="input-label"> E-mail address* </label>
+                      <p class="error-message text-center error-p" id="errorMessage4"></p>
+                      <i class="fa-solid fa-circle-exclamation error-icon2 " style="display: none;"></i>
+                  </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="py-5">
+              <div class="checkbox-main1">
+               <div class="form-check g-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label
+                  class="form-check-label form-checkbox"
+                  for="flexCheckDefault"
+                >
+                  I accept the processing of my personal data in accordance with
+                  the <a href="">Privacy Policy</a>
+                </label>
+              </div>
+
+            </div>
+
+            <div class="checkbox-main2">
+              <div class="form-check pt-lg-4 pt-md-3">
+                <input
+                  class="form-check-input "
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label
+                  class="form-check-label form-checkbox"
+                  for="flexCheckDefault"
+                >
+                  I accept the use of my personal data to receive promotions,
+                  offers, and updates that Avianca has for me.
+                </label>
+              </div> 
+              </div>
+              
+          </div>
+
+          <div class="form-button pt-5">
+            <button id="continueButton">Continue</button>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+    <script>
+
+     
+
+/* input validation */
+function validateInput(inputElement, errorId, labelId) {
+    const errorMessage = document.getElementById(errorId);
+    const label = inputElement.parentElement.querySelector('label[for="' + inputElement.id + '"]');
+    const errorIcon = inputElement.parentElement.querySelector('.fa-circle-exclamation');
+
+    if (inputElement.value === '') {
+        inputElement.style.border = '2px solid #FF380C'; 
+        errorMessage.style.display = 'block';
+        
+        if (label) {
+            label.style.color = '#FF380C'; 
+        }
+        if (errorIcon) {
+            errorIcon.style.display = 'inline'; 
+        }
+
+        return false;
+    } else {
+        inputElement.style.border = '2px solid #23C847'; 
+        errorMessage.style.display = 'none';
+        if (label) {
+            label.style.color = '#23C847'; 
+        }
+        if (errorIcon) {
+            errorIcon.style.display = 'none'; 
+        }
+
+        return true; 
+    }
+}
+
+function clearError(inputElement, errorId, labelId) {
+    const errorMessage = document.getElementById(errorId);
+    const label = inputElement.parentElement.querySelector('label[for="' + inputElement.id + '"]');
+    const errorIcon = inputElement.parentElement.querySelector('.fa-circle-exclamation');
+
+    const computedStyles = window.getComputedStyle(errorMessage);
+    const errorIsDisplayed = computedStyles.getPropertyValue('display') === 'block';
+
+    if (errorIsDisplayed && inputElement.value === '') {
+        inputElement.style.border = '2px solid #FF380C';
+        if (label) {
+            label.style.color = '#FF380C'; 
+        }
+        if (errorIcon) {
+            errorIcon.style.display = 'inline'; 
+        }
+    } else if (inputElement.value !== '') {
+        inputElement.style.border = '1px solid #ccc';
+        if (label) {
+            label.style.color = 'rgb(133, 133, 133)'; 
+        }
+        if (errorIcon) {
+            errorIcon.style.display = 'none'; 
+        }
+    }
+}
+
+
+document.getElementById('continueButton').addEventListener('click', function() {
+    const isValid = validateAllInputs();
+
+ 
+});
+
+function validateAllInputs() {
+    let isValid = true;
+
+   
+    if (!validateInput(document.getElementById('f_name'), 'errorMessage1', 'name_color')) {
+        isValid = false;
+    }
+
+    if (!validateInput(document.getElementById('l_name'), 'errorMessage2', 'name_color')) {
+        isValid = false;
+    }
+
+    if (!validateInput(document.getElementById('phone'), 'errorMessage3', 'name_color')) {
+        isValid = false;
+    }
+
+    if (!validateInput(document.getElementById('email'), 'errorMessage4', 'name_color')) {
+        isValid = false;
+    }
+    if (!validateInput(document.getElementById('new_input'), 'errorMessage5', 'name_color')) {
+        isValid = false;
+    }
+
+
+
+    return isValid;
+}
+
+
+     
+  
+      
+   /* input value */
+      function updatePTag() {
+    var inputValue = document.getElementById('f_name').value;
+    document.getElementById('name').innerText = inputValue;
+
+    var inputValue = document.getElementById('l_name').value;
+    document.getElementById('last_name').innerText = inputValue;
+}
+
+
+
+
+
+      $(document).ready(function () {
+        $(".form-control").focus(function () {
+          $(this).next(".input-label").css("color", "#23C847");
+        });
+        $(".form-control").focusout(function () {
+          $(this).next(".input-label").css("color", "");
+        });
+
+        $(".form-control").blur(function () {
+          if (!$(this).val()) {
+            $(this).next(".input-label").css("color", "rgb(133, 133, 133)");
+          }
+        });
+      });
+
+
+  
+
+   
+
+  /* input value */
+      function updatePTag() {
+    var inputValue = document.getElementById('f_name').value;
+    document.getElementById('name').innerText = inputValue;
+
+    var inputValue = document.getElementById('l_name').value;
+    document.getElementById('last_name').innerText = inputValue;
+}
+
+
+
+
+
+      $(document).ready(function () {
+        $(".form-control").focus(function () {
+          $(this).next(".input-label").css("color", "#23C847");
+        });
+        $(".form-control").focusout(function () {
+          $(this).next(".input-label").css("color", "");
+        });
+
+        $(".form-control").blur(function () {
+          if (!$(this).val()) {
+            $(this).next(".input-label").css("color", "rgb(133, 133, 133)");
+          }
+        });
+      });
+
+
+
+/* dropdown validation */
+function validateSelect(inputElement, errorId, labelId) {
+    const errorMessage = document.getElementById(errorId);
+    const label = inputElement.parentElement.querySelector('#' + labelId);
+
+    if (inputElement.value === '') {
+        inputElement.style.border = '2px solid #FF380C'; 
+        errorMessage.style.display = 'block';
+        
+        if (label) {
+            label.style.color = '#FF380C'; 
+        }
+
+        return false; 
+    } else {
+        inputElement.style.border = '2px solid #23C847'; 
+        errorMessage.style.display = 'none';
+        if (label) {
+            label.style.color = '#23C847'; 
+        }
+
+        return true; 
+    }
+}
+
+function clearSelectError(inputElement, errorId, labelId) {
+    const errorMessage = document.getElementById(errorId);
+    const label = inputElement.parentElement.querySelector('#' + labelId);
+
+    if (errorMessage.style.display === 'block' && inputElement.value === '') {
+        inputElement.style.border = '2px solid red';
+        if (label) {
+            label.style.color = 'red';
+        }
+    } else if (inputElement.value !== '') {
+        inputElement.style.border = '1px solid #ccc';
+        if (label) {
+            label.style.color = 'rgb(133, 133, 133)';
+        }
+        errorMessage.style.display = 'none';
+    }
+}
+
+
+      
+
+      /* Dropdownmenu 1 */
+      $(document).ready(function () {
+  const dropdownMenu = $(".dropdown-menu");
+  const dropdownToggle = $("#dropdownToggle i");
+  const label = $(".select-label");
+  const inputField = $("#select1"); 
+
+  function showDropdown() {
+    dropdownMenu.css("display", "block");
+    label.addClass("select-label").css("color", "#23C847");
+    inputField.css("border", "2px solid #23C847");
+    dropdownToggle.attr("class", "fa-solid fa-angle-up"); 
+  }
+
+  function hideDropdown() {
+    dropdownMenu.css("display", "none");
+    label.removeClass("select-label").css("color", "");
+    inputField.css("border", "");
+    dropdownToggle.attr("class", "fa-solid fa-angle-down"); 
+  }
+
+  dropdownToggle.click(function (e) {
+    e.stopPropagation();
+    if (dropdownMenu.css("display") === "block") {
+      hideDropdown();
+    } else {
+      showDropdown();
+    }
+  });
+
+  inputField.click(function (e) {
+    e.stopPropagation();
+    if (dropdownMenu.css("display") === "block") {
+      hideDropdown();
+    } else {
+      showDropdown();
+    }
+  });
+
+  $(".dropdown-menu li").click(function () {
+    inputField.val($(this).text());
+    inputField.attr("data-value", $(this).attr("data-value"));
+
+    $(".dropdown-menu li").removeClass("selected");
+    $(this).addClass("selected");
+
+    hideDropdown();
+    
+  });
+
+  $(document).click(function (event) {
+    if (
+      !dropdownMenu.is(event.target) &&
+      !dropdownToggle.is(event.target) &&
+      !inputField.is(event.target)
+    ) {
+      hideDropdown();
+    }
+  });
+});
+
+
+
+
+      /* Dropdownmenu 2 */
+
+      $(document).ready(function () {
+  const dropdownMenu1 = $(".dropdown-menu1");
+  const dropdownToggle1 = $("#dropdownToggle1 i");
+  const label1 = $(".select-label1");
+  const inputField1 = $("#floatingInput1");
+
+  function showDropdown() {
+    dropdownMenu1.css("display", "block");
+    label1.addClass("select-label").css("color", "#23C847");
+    inputField1.css("border", "2px solid #23C847");
+    dropdownToggle1.attr("class", "fa-solid fa-angle-up"); 
+  }
+
+  function hideDropdown() {
+    dropdownMenu1.css("display", "none");
+    label1.removeClass("select-label1").css("color", "");
+    inputField1.css("border", "");
+    dropdownToggle1.attr("class", "fa-solid fa-angle-down"); 
+  }
+
+  dropdownToggle1.click(function (e) {
+    e.stopPropagation();
+    if (dropdownMenu1.css("display") === "block") {
+      hideDropdown();
+    } else {
+      showDropdown();
+    }
+  });
+
+  inputField1.click(function (e) {
+    e.stopPropagation();
+    if (dropdownMenu1.css("display") === "block") {
+      hideDropdown();
+    } else {
+      showDropdown();
+    }
+  });
+
+  $(".dropdown-menu1 li").click(function () {
+    inputField1.val($(this).text());
+    inputField1.attr("data-value", $(this).attr("data-value"));
+
+    $(".dropdown-menu1 li").removeClass("selected");
+    $(this).addClass("selected");
+
+    hideDropdown();
+  
+  });
+
+  $(document).click(function (event) {
+    if (
+      !dropdownMenu1.is(event.target) &&
+      !dropdownToggle1.is(event.target) &&
+      !inputField1.is(event.target)
+    ) {
+      hideDropdown();
+    }
+  });
+});
+
+
+       /* Dropdownmenu 3 */
+
+       $(document).ready(function () {
+  const dropdownMenu2 = $(".dropdown-menu2");
+  const dropdownToggle2 = $("#dropdownToggle2 i");
+  const label2 = $(".select-label2");
+  const inputField2 = $("#floatingInput2"); 
+
+  function showDropdown() {
+    dropdownMenu2.css("display", "block");
+    label2.addClass("select-label").css("color", "#23C847");
+    inputField2.css("border", "2px solid #23C847");
+    dropdownToggle2.attr("class", "fa-solid fa-angle-up"); 
+  }
+
+  function hideDropdown() {
+    dropdownMenu2.css("display", "none");
+    label2.removeClass("select-label2").css("color", "");
+    inputField2.css("border", "");
+    dropdownToggle2.attr("class", "fa-solid fa-angle-down"); 
+  }
+
+  dropdownToggle2.click(function (e) {
+    e.stopPropagation();
+    if (dropdownMenu2.css("display") === "block") {
+      hideDropdown();
+    } else {
+      showDropdown();
+    }
+  });
+
+  inputField2.click(function (e) {
+    e.stopPropagation();
+    if (dropdownMenu2.css("display") === "block") {
+      hideDropdown();
+    } else {
+      showDropdown();
+    }
+  });
+
+  $(".dropdown-menu2 li").click(function () {
+    inputField2.val($(this).text());
+    inputField2.attr("data-value", $(this).attr("data-value"));
+
+    $(".dropdown-menu2 li").removeClass("selected");
+    $(this).addClass("selected");
+
+    hideDropdown();
+
+  });
+
+  $(document).click(function (event) {
+    if (
+      !dropdownMenu2.is(event.target) &&
+      !dropdownToggle2.is(event.target) &&
+      !inputField2.is(event.target)
+    ) {
+      hideDropdown();
+    }
+  });
+});
+
+  
+
+
+/* new input */
+function toggleInput() {
+    var inputField = document.getElementById("inputField");
+
+    if (inputField.style.display === "none" || inputField.style.display === "") {
+        inputField.style.display = "block";
+    } else {
+        inputField.style.display = "none";
+    }
+
+    var dropdownContent = document.querySelector(".dropdown-menu1");
+    dropdownContent.style.display = "none";
+}
+
+function updatePTag1(event) {
+    if (event.target.tagName === 'LI') {
+        var selectedValue = event.target.dataset.value;
+        var selectedLabel = event.target.textContent;
+
+        if (selectedValue === "1") {
+            var inputField = document.getElementById("inputField");
+            inputField.style.display = "none";
+        } else {
+            showInput(); 
+            document.getElementById("abc").textContent = selectedLabel; 
+        }
+    }
+}
+
+
+
+function showInput() {
+    var inputField = document.getElementById("inputField");
+    inputField.style.display = "block";
+}
+
+
+
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+  </body>
+</html>
